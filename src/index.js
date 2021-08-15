@@ -109,7 +109,22 @@ function getWeather(response) {
   let weather = response.data.weather[0].main;
   currWeatherElement.innerHTML = weather;
 
-  console.log(response.data);
+  // console.log(response.data);
+
+  let humidityElement = document.querySelector(".humidity");
+  let pressureElement = document.querySelector(".pressure");
+  let tempMaxElement = document.querySelector(".tempMax");
+  let tempMinElement = document.querySelector(".tempMin");
+
+  let humidity = response.data.main.humidity;
+  let pressure = response.data.main.pressure;
+  let tempMax = Math.round(response.data.main.temp_max);
+  let tempMin = Math.round(response.data.main.temp_min);
+
+  humidityElement.innerHTML = humidity;
+  pressureElement.innerHTML = pressure;
+  tempMaxElement.innerHTML = tempMax;
+  tempMinElement.innerHTML = tempMin;
 }
 
 function useCurrentLocation() {
