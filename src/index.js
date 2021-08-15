@@ -108,6 +108,8 @@ function getWeather(response) {
   let currWeatherElement = document.querySelector(".weather");
   let weather = response.data.weather[0].main;
   currWeatherElement.innerHTML = weather;
+
+  console.log(response.data);
 }
 
 function useCurrentLocation() {

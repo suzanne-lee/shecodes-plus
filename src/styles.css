@@ -16,6 +16,11 @@
   margin: 0 auto;
   text-align: center;
   padding: 50px;
+  width: 800px;
+  background-color: #ecf3fe;
+  border: 1px solid;
+  border-color: #c5dafc;
+  border-radius: 25px;
 }
 .search {
   position: relative;
@@ -26,6 +31,7 @@
   border: 1px solid;
   border-color: #c5dafc;
   padding: 50px;
+  margin-top: 50px;
 }
 .hour {
   text-align: center;
