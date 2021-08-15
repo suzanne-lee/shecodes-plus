@@ -86,8 +86,8 @@ form.addEventListener("submit", search);
 function getWeather(response) {
   // City
   let cityElement = document.querySelector(".city");
-  let currentCity = response.data.name;
-  cityElement.innerHTML = currentCity;
+  let city = response.data.name;
+  cityElement.innerHTML = city;
 
   // Country
   let countryElement = document.querySelector(".country");
@@ -107,7 +107,7 @@ function getWeather(response) {
   // Weather
   let currWeatherElement = document.querySelector(".weather");
   let weather = response.data.weather[0].main;
-  currWeatherElement.innerHTML = `${weather}`;
+  currWeatherElement.innerHTML = weather;
 }
 
 function useCurrentLocation() {
