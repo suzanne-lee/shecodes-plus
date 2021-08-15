@@ -90,8 +90,9 @@ function getWeather(response) {
   cityElement.innerHTML = currentCity;
 
   // Country
+  let countryElement = document.querySelector(".country");
   let country = response.data.sys.country;
-  // cityElement.innerHTML += country;
+  countryElement.innerHTML = country;
 
   // Current Temperature
   let currentTempElement = document.querySelector(".currentTemperature");
