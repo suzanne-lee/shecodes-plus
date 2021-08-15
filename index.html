@@ -44,19 +44,28 @@
           <span class="city">Montreal</span>, <span class="country">CA</span>
         </h1>
       </div>
-      <div class="weatherSummary">
+      <div class="card" id="weatherSummary">
+        <img
+          class="weatherIcon"
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/015/272/original/sun_favicon_50px.png?1629044288""
+          alt="Sunny"
+          width="50px"
+            />
         <h1 class="currentTemperature">23°C</h1>
         <div class="feelsLikeTemperature">Feels like 23</div>
         <div class="weather">Sunny</div>
       </div>
-      <div class="row hourlyForecast">
+      <div class="card">
+        <div class="row" id="hourlyForecast">
         <div class="col hour">4 PM<br />🌤️<br />28°C</div>
         <div class="col hour">5 PM<br />⛅<br />27°C</div>
         <div class="col hour">6 PM<br />🌥️<br />27°C</div>
         <div class="col hour">7 PM<br />☁️<br />26°C</div>
         <div class="col hour">8 PM<br />⛈️<br />23°C</div>
       </div>
-      <div class="row nextFiveDays">
+      </div>
+      <div class="card">
+        <div class="row" id="nextFiveDays">
         <div class="col day">Monday</div>
         <div class="col temp">26°C / 12°C ☀️</div>
         <div class="w-100"></div>
@@ -72,7 +81,9 @@
         <div class="col day">Friday</div>
         <div class="col temp">25°C / 11°C ⛅</div>
       </div>
+      </div>
     </div>
+     <hr />
     <p class="footer">
         <a href="https://github.com/suzanne-lee/shecodes-plus" target="_blank">
             Open-source code,

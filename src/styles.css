@@ -11,27 +11,37 @@
 .container {
   margin: 50px;
 }
-.weatherSummary {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  padding: 50px;
-  width: 800px;
-  background-color: #ecf3fe;
-  border: 1px solid;
-  border-color: #c5dafc;
-  border-radius: 25px;
-}
 .search {
   position: relative;
   float: right;
 }
-.hourlyForecast {
-  background-color: #ecf3fe;
+.card {
+  display: block;
+  margin: 0 auto;
+  width: 800px;
+  background-color: #ecf3fe !important;
   border: 1px solid;
   border-color: #c5dafc;
+  border-radius: 25px !important;
+  margin-bottom: 50px;
+}
+.weatherIcon {
+    display: block;
+    margin: 0 auto;
+}
+.currentTemperature {
+  padding: 15px;
+  margin: 0;
+}
+#weatherSummary {
+  text-align: center;
   padding: 50px;
-  margin-top: 50px;
+}
+#hourlyForecast {
+  padding: 50px;
+}
+#nextFiveDays {
+  padding: 50px;
 }
 .hour {
   text-align: center;
@@ -39,13 +49,12 @@
 .temp {
   text-align: right;
 }
-.nextFiveDays {
-  background-color: #c5dafc;
-  border: 1px solid;
-  border-color: #9ec1fa;
-  padding: 50px;
-  margin-top: 50px;
+hr {
+  width: 800px;
+  border: 2px solid #e5f1ec;
+  background-color: #e5f1ec;
 }
 .footer {
   text-align: center;
+  padding: 50px;
 }
