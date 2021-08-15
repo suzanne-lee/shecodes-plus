@@ -25,6 +25,12 @@
   border-radius: 25px !important;
   margin-bottom: 50px;
 }
+.cardTitle {
+  width: 800px;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
 .weatherIcon {
     display: block;
     margin: 0 auto;
