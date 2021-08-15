@@ -1,3 +1,13 @@
+.location {
+  padding: 50px;
+  text-align: center;
+}
+.city, .currentTemperature {
+  font-weight: 600;
+}
+.country {
+  font-weight: 300;
+}
 .container {
   margin: 50px;
 }

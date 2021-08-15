@@ -102,7 +102,7 @@ function getWeather(response) {
   // Feels like Temperature
   let feelsLikeTempElement = document.querySelector(".feelsLikeTemperature");
   let feelsLikeTemp = Math.round(response.data.main.feels_like);
-  feelsLikeTempElement.innerHTML = `Feels like ${feelsLikeTemp}°C`;
+  feelsLikeTempElement.innerHTML = `Feels like ${feelsLikeTemp}`;
 
   // Weather
   let currWeatherElement = document.querySelector(".weather");
