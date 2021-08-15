@@ -1,0 +1,32 @@
+.container {
+  margin: 50px;
+}
+.weatherSummary {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px;
+}
+.search {
+  position: relative;
+  float: right;
+}
+.hourlyForecast {
+  background-color: #ecf3fe;
+  border: 1px solid;
+  border-color: #c5dafc;
+  padding: 50px;
+}
+.hour {
+  text-align: center;
+}
+.temp {
+  text-align: right;
+}
+.nextFiveDays {
+  background-color: #c5dafc;
+  border: 1px solid;
+  border-color: #9ec1fa;
+  padding: 50px;
+  margin-top: 50px;
+}

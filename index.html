@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<html>
+  <head>
+    <title>Week 5</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
 
-</body>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <span class="dateTime">
+            <div class="date">Date</div>
+            <h2 class="time">Time</h2>
+          </span>
+        </div>
+        <div class="col">
+          <span class="search">
+            <form>
+              <input type="text" id="search" placeholder="Enter a city" />
+              <input type="submit" value="Go" />
+            </form>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onClick="useCurrentLocation()"
+            >
+              Current Location
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="weatherSummary">
+        <div class="city">Montreal</div>
+        <h1 class="currentTemperature">23°C</h1>
+        <div class="weather">Sunny</div>
+      </div>
+      <div class="row hourlyForecast">
+        <div class="col hour">4 PM<br />🌤️<br />28°C</div>
+        <div class="col hour">5 PM<br />⛅<br />27°C</div>
+        <div class="col hour">6 PM<br />🌥️<br />27°C</div>
+        <div class="col hour">7 PM<br />☁️<br />26°C</div>
+        <div class="col hour">8 PM<br />⛈️<br />23°C</div>
+      </div>
+      <div class="row nextFiveDays">
+        <div class="col day">Monday</div>
+        <div class="col temp">26°C / 12°C ☀️</div>
+        <div class="w-100"></div>
+        <div class="col day">Tuesday</div>
+        <div class="col temp">28°C / 16°C 🌧️</div>
+        <div class="w-100"></div>
+        <div class="col day">Wednesday</div>
+        <div class="col temp">23°C / 10°C ⛈️</div>
+        <div class="w-100"></div>
+        <div class="col day">Thursday</div>
+        <div class="col temp">27°C / 12°C ☁️</div>
+        <div class="w-100"></div>
+        <div class="col day">Friday</div>
+        <div class="col temp">25°C / 11°C ⛅</div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
 </html>
