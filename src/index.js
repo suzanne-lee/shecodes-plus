@@ -91,9 +91,14 @@ function getWeather(response) {
   let cityElement = document.querySelector(".city");
   cityElement.innerHTML = currCity;
 
-  console.log(response.data);
-
   currTempElement.innerHTML = `${temperature}°C`;
+
+  let currWeatherElement = document.querySelector(".weather");
+  let weather = response.data.weather[0].main;
+
+  console.log(response.data.weather[0].main);
+
+  currWeatherElement.innerHTML = `${weather}`;
 }
 
 function useCurrentLocation() {
