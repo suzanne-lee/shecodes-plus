@@ -84,20 +84,28 @@ let form = document.querySelector("form");
 form.addEventListener("submit", search);
 
 function getWeather(response) {
-  let currTempElement = document.querySelector(".currentTemperature");
-  let temperature = Math.round(response.data.main.temp);
-
-  let currCity = response.data.name;
+  // City
   let cityElement = document.querySelector(".city");
-  cityElement.innerHTML = currCity;
+  let currentCity = response.data.name;
+  cityElement.innerHTML = currentCity;
 
-  currTempElement.innerHTML = `${temperature}°C`;
+  // Country
+  let country = response.data.sys.country;
+  // cityElement.innerHTML += country;
 
+  // Current Temperature
+  let currentTempElement = document.querySelector(".currentTemperature");
+  let currentTemp = Math.round(response.data.main.temp);
+  currentTempElement.innerHTML = `${currentTemp}°C`;
+
+  // Feels like Temperature
+  let feelsLikeTempElement = document.querySelector(".feelsLikeTemperature");
+  let feelsLikeTemp = Math.round(response.data.main.feels_like);
+  feelsLikeTempElement.innerHTML = `Feels like ${feelsLikeTemp}°C`;
+
+  // Weather
   let currWeatherElement = document.querySelector(".weather");
   let weather = response.data.weather[0].main;
-
-  console.log(response.data.weather[0].main);
-
   currWeatherElement.innerHTML = `${weather}`;
 }
 
