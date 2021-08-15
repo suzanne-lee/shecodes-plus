@@ -58,3 +58,9 @@ hr {
   text-align: center;
   padding: 50px;
 }
+.vertical {
+    border-left: 1px solid black;
+    height: 175px;
+    position: absolute;
+    left: 50%;
+}
