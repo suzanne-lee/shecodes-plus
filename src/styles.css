@@ -23,6 +23,9 @@ body {
 .city, .currentTemperature {
   font-weight: 600;
 }
+.feelsLikeTemperature {
+  opacity: 0.5;
+}
 .country {
   font-weight: 300;
 }
@@ -37,7 +40,7 @@ body {
   display: block;
   margin: 0 auto;
   width: 800px;
-  background-color: rgba(255, 255, 255, 0.4) !important;
+  background-color: rgba(255, 255, 255, 0.3) !important;
   border: 0px solid !important;
   /*border-color: #c5dafc;*/
   border-radius: 25px !important;
@@ -54,7 +57,7 @@ body {
     margin: 0 auto;
 }
 .currentTemperature {
-  padding: 15px;
+  padding: 15px 15px 0px 15px;
   margin: 0;
 }
 #weatherSummary {
@@ -84,7 +87,7 @@ hr {
 }
 .vertical {
     border-left: 1px solid black;
-    height: 175px;
+    height: 160px;
     position: absolute;
     left: 50%;
 }
