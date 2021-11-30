@@ -5,7 +5,7 @@ window.onload = function () {
   defaultData();
 };
 
-function formatDate(date) {
+function displayCurrentDate(date) {
   let days = [
     "Sunday",
     "Monday",
@@ -13,7 +13,7 @@ function formatDate(date) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
 
   let months = [
@@ -28,7 +28,7 @@ function formatDate(date) {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
 
   let currentDay = days[date.getDay()];
@@ -37,38 +37,48 @@ function formatDate(date) {
 
   let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}`;
 
-  let dateElement = document.querySelector(".date");
+  let dateElement = document.getElementById("date");
   dateElement.innerHTML = formattedDate;
 }
 
 function formatTime(date) {
-  let currentHour = date.getHours();
-  let currentMinutes = date.getMinutes();
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
   let period = "AM";
 
-  // 12 hour clock
-  if (currentHour > 12) {
-    currentHour = currentHour - 12;
+  if (hour == 0) {
+    hour = 12;
+  }
+
+  if (hour > 12) {
+    hour = hour - 12;
     period = "PM";
   }
 
-  if (currentHour < 10) {
-    currentHour = "0" + currentHour;
+  if (hour < 10) {
+    hour = "0" + hour;
   }
 
-  if (currentMinutes < 10) {
-    currentMinutes = "0" + currentMinutes;
+  if (minutes < 10) {
+    minutes = "0" + minutes;
   }
 
-  let formattedTime = `${currentHour}:${currentMinutes} ${period}`;
+  return `${hour}:${minutes} ${period}`;
+}
 
-  let timeElement = document.querySelector(".time");
+function displayCurrentTime(now) {
+  formattedTime = formatTime(now);
+  let timeElement = document.getElementById("time");
   timeElement.innerHTML = formattedTime;
 }
 
+displayCurrentDate(now);
+displayCurrentTime(now);
+// defaultData();
+
 function search(event) {
   event.preventDefault();
-  let input = document.querySelector("#search");
+  let input = document.querySelector("#search-city");
   let userInput = input.value.toLowerCase();
 
   let city = userInput;
@@ -77,54 +87,78 @@ function search(event) {
   axios.get(url).then(getWeather);
 }
 
-formatDate(now);
-formatTime(now);
-
-let form = document.querySelector("form");
-form.addEventListener("submit", search);
+let searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", search);
 
 function getWeather(response) {
   // City
-  let cityElement = document.querySelector(".city");
+  let cityElement = document.getElementById("city");
   let city = response.data.name;
   cityElement.innerHTML = city;
 
   // Country
-  let countryElement = document.querySelector(".country");
+  let countryElement = document.getElementById("country");
   let country = response.data.sys.country;
   countryElement.innerHTML = country;
 
   // Current Temperature
-  let currentTempElement = document.querySelector(".currentTemperature");
+  let currentTempElement = document.getElementById("temperature");
   let currentTemp = Math.round(response.data.main.temp);
-  currentTempElement.innerHTML = `${currentTemp}°C`;
-
-  // Feels like Temperature
-  let feelsLikeTempElement = document.querySelector(".feelsLikeTemperature");
-  let feelsLikeTemp = Math.round(response.data.main.feels_like);
-  feelsLikeTempElement.innerHTML = `Feels like ${feelsLikeTemp}`;
+  currentTempElement.innerHTML = `${currentTemp}`;
 
   // Weather
-  let currWeatherElement = document.querySelector(".weather");
+  let currWeatherElement = document.getElementById("weather-condition");
   let weather = response.data.weather[0].main;
   currWeatherElement.innerHTML = weather;
 
   // console.log(response.data);
 
-  let humidityElement = document.querySelector(".humidity");
-  let pressureElement = document.querySelector(".pressure");
-  let tempMaxElement = document.querySelector(".tempMax");
-  let tempMinElement = document.querySelector(".tempMin");
+  // Feels like Temperature
+  let feelsLikeTempElement = document.getElementById("card1-feels-like-temp");
+  let feelsLikeTemp = Math.round(response.data.main.feels_like);
+  feelsLikeTempElement.innerHTML = feelsLikeTemp;
+
+  let humidityElement = document.getElementById("humidity");
+  let pressureElement = document.getElementById("pressure");
+  let tempMaxElement = document.getElementById("temp-max");
+  let tempMinElement = document.getElementById("temp-min");
+  let windSpeedElement = document.getElementById("wind-speed");
 
   let humidity = response.data.main.humidity;
   let pressure = response.data.main.pressure;
   let tempMax = Math.round(response.data.main.temp_max);
   let tempMin = Math.round(response.data.main.temp_min);
+  let windSpeed = response.data.wind.speed;
 
   humidityElement.innerHTML = humidity;
   pressureElement.innerHTML = pressure;
   tempMaxElement.innerHTML = tempMax;
   tempMinElement.innerHTML = tempMin;
+  windSpeedElement.innerHTML = windSpeed; // default is metric: m/s, imperial: miles/s
+
+  let sunriseElement = document.getElementById("sunrise");
+  let sunsetElement = document.getElementById("sunset");
+
+  let sunrise = response.data.sys.sunrise * 1000;
+  let sunset = response.data.sys.sunset * 1000;
+
+  sunrise = new Date(sunrise);
+  sunset = new Date(sunset);
+
+  // console.log("Sunrise: " + sunrise.getTime());
+  //console.log(sunset);
+
+  sunriseFormattedTime = formatTime(sunrise);
+  sunsetFormattedTime = formatTime(sunset);
+
+  sunriseElement.innerHTML = sunriseFormattedTime;
+  sunsetElement.innerHTML = sunsetFormattedTime;
+
+  // console.log(sunrise);
+
+  let iconId = response.data.weather[0].icon;
+  let imgElement = document.querySelector(".weather-icon");
+  imgElement.src = `weather_icons/${iconId}.png`;
 }
 
 function useCurrentLocation() {
