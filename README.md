@@ -1,6 +1,6 @@
 # Description
 
-A single page Weather Forecast web application. 
+A single page Weather Forecast web application.
 
 Check out the project [here](https://modest-sammet-e184ff.netlify.app)!
 
@@ -23,3 +23,5 @@ This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript and uses
 * Add more forecast information, such as Next 5 Hours  
 
 # Examples
+
+<img width="1920" alt="Screen Shot 2021-12-01 at 10 31 02 PM" src="https://user-images.githubusercontent.com/29237731/144353068-4815f550-323a-44e5-89ce-c2b6f93a482c.png">
