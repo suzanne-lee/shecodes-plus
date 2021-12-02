@@ -1,5 +1,9 @@
 # Description
 
+A single page Weather Forecast web application. 
+
+Check out the project [here](https://app.netlify.com/sites/modest-sammet-e184ff/overview)!
+
 # Tech Used
 
 This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript and uses the OpenWeather API to get current weather and forecast information. 
