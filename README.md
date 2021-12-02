@@ -2,7 +2,7 @@
 
 A single page Weather Forecast web application. 
 
-Check out the project [here](https://app.netlify.com/sites/modest-sammet-e184ff/overview)!
+Check out the project [here](https://app.netlify.com/sites/modest-sammet-e184ff/)!
 
 # Tech Used
 
