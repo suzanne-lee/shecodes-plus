@@ -487,3 +487,30 @@ function search(event) {
 
 let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", search);
+
+// should i initialize the object inside the function? or outside
+function getAltText(iconId) {
+  let altTextObject = {
+    "01d": "Yellow Sun",
+    "01n": "Purple Crescent Moon surrounded by Yellow Stars",
+    "02d": "Yellow Sun Behind White Cloud",
+    "02n": "Purple Crescent Moon Behind White Cloud",
+    "03d": "White Cloud",
+    "03n": "White Cloud surrounded by Fuchsia Stars",
+    "04d": "",
+    "04n": "",
+    "09d": "White Cloud with 3 Raindrops",
+    "09n": "White Cloud with 3 Raindrops",
+    "10d": "Yellow Sun Behind White Cloud with 3 Raindrops",
+    "10n": "Purple Crescent Moon Behind White Cloud with 3 Raindrops",
+    "11d": "Yellow Sun Behind White Cloud with Lightning Bolt",
+    "11n":
+      "Purple Crescent Moon Behind White Cloud with Lightning Bolt surrounded by Yellow Stars",
+    "13d": "White Cloud with Snowflakes",
+    "13n": "Purple Crescent Moon Behind White Cloud with Snowflakes",
+    "50d": "Yellow Sun with White Squiggly Mist Lines",
+    "50n": "Purple Crescent Moon with White Squiggly Mist Lines",
+  };
+
+  return altTextObject[iconId];
+}
