@@ -2,6 +2,29 @@ let now = new Date();
 // let apiKey = "69783318a51bc25d3112e1ead9cef0cd";
 let apiKey = "69783318a51bc25d3112e1ead9cef0cd";
 
+// altTextObject[iconId];
+const altTextObject = {
+  "01d": "Yellow Sun",
+  "01n": "Purple Crescent Moon surrounded by Yellow Stars",
+  "02d": "Yellow Sun Behind White Cloud",
+  "02n": "Purple Crescent Moon Behind White Cloud",
+  "03d": "White Cloud",
+  "03n": "White Cloud surrounded by Fuchsia Stars",
+  "04d": "",
+  "04n": "",
+  "09d": "White Cloud with 3 Raindrops",
+  "09n": "White Cloud with 3 Raindrops",
+  "10d": "Yellow Sun Behind White Cloud with 3 Raindrops",
+  "10n": "Purple Crescent Moon Behind White Cloud with 3 Raindrops",
+  "11d": "Yellow Sun Behind White Cloud with Lightning Bolt",
+  "11n":
+    "Purple Crescent Moon Behind White Cloud with Lightning Bolt surrounded by Yellow Stars",
+  "13d": "White Cloud with Snowflakes",
+  "13n": "Purple Crescent Moon Behind White Cloud with Snowflakes",
+  "50d": "Yellow Sun with White Squiggly Mist Lines",
+  "50n": "Purple Crescent Moon with White Squiggly Mist Lines",
+};
+
 // day-cloudy-sky-background: between sunrise and sunset, cloudy
 // day-clear-sky-background: between sunrise and sunset, clear sky
 // morning-evening-sky-background: sunrise/sunset
@@ -175,8 +198,11 @@ function displayCurrentWeather(response) {
   // console.log(sunrise);
 
   let iconId = response.data.weather[0].icon;
-  let imgElement = document.querySelector(".weather-icon");
+  let imgElement = document.getElementById("current-weather-icon");
   imgElement.src = `weather_icons/${iconId}.png`;
+
+  // setAltText(imgId, iconId)
+  setAltText("current-weather-icon", iconId);
 
   // CHANGE BACKGROUND HERE
   let currentDate = new Date();
@@ -206,6 +232,7 @@ function displayCurrentWeather(response) {
   ) {
     // use night sky image
     changeBackground("night");
+    // changeBackground("sunset-sunrise");
     changeTextColor("#fff");
   } else {
     // use sunrise/sunset image
@@ -489,6 +516,7 @@ let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", search);
 
 // should i initialize the object inside the function? or outside
+/*
 function getAltText(iconId) {
   let altTextObject = {
     "01d": "Yellow Sun",
@@ -513,4 +541,10 @@ function getAltText(iconId) {
   };
 
   return altTextObject[iconId];
+}*/
+
+// TO DO: change function to set both image and its alt text, instead of just alt text?
+function setAltText(imgId, iconId) {
+  let imgElement = document.getElementById(imgId);
+  imgElement.alt = altTextObject[iconId];
 }
