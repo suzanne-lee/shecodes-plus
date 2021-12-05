@@ -10,8 +10,8 @@ const altTextObject = {
   "02n": "Purple Crescent Moon Behind White Cloud",
   "03d": "White Cloud",
   "03n": "White Cloud surrounded by Fuchsia Stars",
-  "04d": "",
-  "04n": "",
+  "04d": "Two White Clouds overlapping each other",
+  "04n": "Two White Clouds overlapping each other, surrounded by Fuchsia Stars",
   "09d": "White Cloud with 3 Raindrops",
   "09n": "White Cloud with 3 Raindrops",
   "10d": "Yellow Sun Behind White Cloud with 3 Raindrops",
@@ -39,14 +39,10 @@ function changeBackground(imageName) {
 }
 
 function changeTextColor(hexCode) {
-  // current date and time
-  document.getElementById("date-time").style.color = hexCode;
+  document.getElementById("upper-container").style.color = hexCode;
 
-  // search input field
-  // TO DO: FIX COLOR OF OUTLINE WHEN ACTIVE
-  document.getElementById("search-city").style.borderColor = hexCode;
-  // .form-control
-  document.querySelector(".form-control").style.color = hexCode;
+  document.querySelector("input").style.borderColor = hexCode;
+  document.querySelector("input").style.color = hexCode;
 
   // location
   document.getElementById("location").style.color = hexCode;
@@ -198,11 +194,13 @@ function displayCurrentWeather(response) {
   // console.log(sunrise);
 
   let iconId = response.data.weather[0].icon;
-  let imgElement = document.getElementById("current-weather-icon");
-  imgElement.src = `weather_icons/${iconId}.png`;
+  //let imgElement = document.getElementById("current-weather-icon");
+  // imgElement.src = `weather_icons/${iconId}.png`;
+
+  displayIcon("current-weather-icon", iconId);
 
   // setAltText(imgId, iconId)
-  setAltText("current-weather-icon", iconId);
+  // setAltText("current-weather-icon", iconId);
 
   // CHANGE BACKGROUND HERE
   let currentDate = new Date();
@@ -262,13 +260,6 @@ function displayNext5DaysWeather(response) {
   let day4 = response.data.daily[4];
   let day5 = response.data.daily[5];
 
-  // daily.weather.icon
-  let day1IconID = day1.weather[0].icon;
-  let day2IconID = day2.weather[0].icon;
-  let day3IconID = day3.weather[0].icon;
-  let day4IconID = day4.weather[0].icon;
-  let day5IconID = day5.weather[0].icon;
-
   // daily.temp.day
   let day1Temp = day1.temp.day;
   let day2Temp = day2.temp.day;
@@ -302,17 +293,30 @@ function displayNext5DaysWeather(response) {
   day4TempElement.innerHTML = Math.round(day4Temp);
   day5TempElement.innerHTML = Math.round(day5Temp);
 
-  let day1IconElement = document.getElementById("img1");
-  let day2IconElement = document.getElementById("img2");
-  let day3IconElement = document.getElementById("img3");
-  let day4IconElement = document.getElementById("img4");
-  let day5IconElement = document.getElementById("img5");
+  // daily.weather.icon
+  let day1IconId = day1.weather[0].icon;
+  let day2IconId = day2.weather[0].icon;
+  let day3IconId = day3.weather[0].icon;
+  let day4IconId = day4.weather[0].icon;
+  let day5IconId = day5.weather[0].icon;
 
-  day1IconElement.src = `weather_icons/${day1IconID}.png`;
-  day2IconElement.src = `weather_icons/${day2IconID}.png`;
-  day3IconElement.src = `weather_icons/${day3IconID}.png`;
-  day4IconElement.src = `weather_icons/${day4IconID}.png`;
-  day5IconElement.src = `weather_icons/${day5IconID}.png`;
+  displayIcon("img1", day1IconId);
+  displayIcon("img2", day2IconId);
+  displayIcon("img3", day3IconId);
+  displayIcon("img4", day4IconId);
+  displayIcon("img5", day5IconId);
+
+  //let day1IconElement = document.getElementById("img1");
+  //let day2IconElement = document.getElementById("img2");
+  //let day3IconElement = document.getElementById("img3");
+  //let day4IconElement = document.getElementById("img4");
+  //let day5IconElement = document.getElementById("img5");
+
+  //day1IconElement.src = `weather_icons/${day1IconID}.png`;
+  //day2IconElement.src = `weather_icons/${day2IconID}.png`;
+  //day3IconElement.src = `weather_icons/${day3IconID}.png`;
+  //day4IconElement.src = `weather_icons/${day4IconID}.png`;
+  //day5IconElement.src = `weather_icons/${day5IconID}.png`;
 
   let day1FeelsLikeElement = document.getElementById("feels-like1");
   let day2FeelsLikeElement = document.getElementById("feels-like2");
@@ -546,5 +550,11 @@ function getAltText(iconId) {
 // TO DO: change function to set both image and its alt text, instead of just alt text?
 function setAltText(imgId, iconId) {
   let imgElement = document.getElementById(imgId);
+  imgElement.alt = altTextObject[iconId];
+}
+
+function displayIcon(imgId, iconId) {
+  let imgElement = document.getElementById(imgId);
+  imgElement.src = `weather_icons/${iconId}.png`;
   imgElement.alt = altTextObject[iconId];
 }
