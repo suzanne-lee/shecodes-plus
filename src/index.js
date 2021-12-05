@@ -23,6 +23,10 @@ const altTextObject = {
   "50n": "Purple Crescent Moon with White Squiggly Mist Lines",
 };
 
+/**
+ *
+ * @param {*} imageName
+ */
 function changeBackground(imageName) {
   document.querySelector(
     "body"
@@ -30,6 +34,10 @@ function changeBackground(imageName) {
   document.body.style.backgroundHeight = "90%";
 }
 
+/**
+ *
+ * @param {*} hexCode
+ */
 function changeTextColor(hexCode) {
   // Date/time, Change location input/buttons
   document.getElementById("upper-container").style.color = hexCode;
@@ -55,6 +63,10 @@ function changeTextColor(hexCode) {
   document.getElementById("footer").style.color = hexCode;
 }
 
+/**
+ *
+ * @param {*} date
+ */
 function displayCurrentDate(date) {
   let days = [
     "Sunday",
@@ -91,6 +103,11 @@ function displayCurrentDate(date) {
   dateElement.innerHTML = formattedDate;
 }
 
+/**
+ *
+ * @param {*} date
+ * @returns
+ */
 function formatTime(date) {
   let hour = date.getHours();
   let minutes = date.getMinutes();
@@ -116,6 +133,10 @@ function formatTime(date) {
   return `${hour}:${minutes} ${period}`;
 }
 
+/**
+ *
+ * @param {*} now
+ */
 function displayCurrentTime(now) {
   formattedTime = formatTime(now);
   let timeElement = document.getElementById("time");
@@ -126,6 +147,10 @@ displayCurrentDate(now);
 displayCurrentTime(now);
 defaultData();
 
+/**
+ *
+ * @param {*} response
+ */
 function displayCurrentWeather(response) {
   // City
   let cityElement = document.getElementById("city");
@@ -220,15 +245,18 @@ function displayCurrentWeather(response) {
   }
 }
 
+/**
+ *
+ */
 function defaultData() {
   let city = "Montreal";
   blah2(city);
 }
 
-function getLatLongCoord(response) {
-  return response.data.coord.lat;
-}
-
+/**
+ *
+ * @param {*} response
+ */
 function displayNext5DaysWeather(response) {
   let day1 = response.data.daily[1];
   let day2 = response.data.daily[2];
@@ -313,10 +341,17 @@ function displayNext5DaysWeather(response) {
   day5PoPElement.innerHTML = Math.round(day5PoP * 100);
 }
 
+/**
+ *
+ */
 function useCurrentLocation() {
   navigator.geolocation.getCurrentPosition(displayCurrentLocation);
 }
 
+/**
+ *
+ * @param {*} e
+ */
 function catchFunction(e) {
   console.error("myError", e);
 
@@ -329,6 +364,11 @@ function catchFunction(e) {
   }
 }
 
+/**
+ *
+ * @param {*} position
+ * @returns
+ */
 function blah(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -339,6 +379,10 @@ function blah(position) {
   return Promise.all([axios.get(url), axios.get(urlNext5Days)]);
 }
 
+/**
+ *
+ * @param {*} param0
+ */
 function displayCurrentAndNext5DaysWeather([
   currentWeatherResponse,
   next5DaysWeatherResponse,
@@ -349,10 +393,18 @@ function displayCurrentAndNext5DaysWeather([
   console.log(next5DaysWeatherResponse);
 }
 
+/**
+ *
+ * @param {*} position
+ */
 function displayCurrentLocation(position) {
   blah(position).then(displayCurrentAndNext5DaysWeather).catch(catchFunction);
 }
 
+/**
+ *
+ * @param {*} city
+ */
 function blah2(city) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(url).then((response) => {
@@ -365,6 +417,12 @@ function blah2(city) {
   }, catchFunction);
 }
 
+/**
+ * This function is called when searching a city
+ * If user submits form without entering a city, an alert will indicate so
+ *
+ * @param {*} event
+ */
 function search(event) {
   // event.preventDefault();
   let userInput = document.querySelector("#search-city");
@@ -381,18 +439,34 @@ function search(event) {
 let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", search);
 
+/**
+ * This function displays the appropriate weather icon and updates its alt text
+ *
+ * @param {*} imgId id of the html img
+ * @param {*} iconId id of the desired weather icon
+ */
 function displayIcon(imgId, iconId) {
   let imgElement = document.getElementById(imgId);
   imgElement.src = `weather_icons/${iconId}.png`;
   imgElement.alt = altTextObject[iconId];
 }
 
+/**
+ * This function formats and displays a date in the Next 5 Days card
+ *
+ * Example (Monday December 6):
+ * MON
+ * 12/06
+ *
+ * @param {*} index 1, 2, 3, 4, or 5
+ * @param {*} dt epoch date/time from api call
+ */
 function displayDay(index, dt) {
   let weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   let fullDate = new Date(dt * 1000);
   let day = fullDate.getDay(); // day of the week
   let month = fullDate.getMonth() + 1; // month
-  let date = fullDate.getDate(); // ex: the 5th of the month
+  let date = fullDate.getDate(); // ex: the 5th day of the month
 
   let weekdayElement = document.getElementById(`weekday${index}`);
   weekdayElement.innerHTML = weekdays[day];
