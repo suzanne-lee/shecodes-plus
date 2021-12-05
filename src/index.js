@@ -54,6 +54,12 @@ function changeTextColor(hexCode) {
   document.querySelector("hr").style.color = hexCode;
   document.querySelector("hr").style.borderTopColor = hexCode;
   document.getElementById("footer").style.color = hexCode;
+
+  if (hexCode == "#fff") {
+    document.querySelector("#search-city").classList.add("night");
+  } else {
+    document.querySelector("#search-city").classList.remove("night");
+  }
 }
 
 function displayCurrentDate(date) {
