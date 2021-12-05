@@ -6,7 +6,7 @@ Check out the project [here](https://modest-sammet-e184ff.netlify.app)!
 
 # Tech Used
 
-This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript and uses the OpenWeather API to get current weather and forecast information. 
+This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript. This project uses [OpenWeather](https://openweathermap.org/) APIs to get current weather and forecast information.
 
 # Project Requirements
 * Display current date and time 
