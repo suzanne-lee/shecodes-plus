@@ -257,8 +257,7 @@ function getLatLongCoord(response) {
 }
 
 function displayNext5DaysWeather(response) {
-  displayNext5Days(now);
-  //console.log("displayNext5DaysWeather", response);
+  //displayNext5Days(now);
 
   let day1 = response.data.daily[1];
   let day2 = response.data.daily[2];
@@ -267,7 +266,12 @@ function displayNext5DaysWeather(response) {
   let day5 = response.data.daily[5];
 
   // test(day1.dt);
-  convertEpoch(day1.dt);
+  // convertEpoch(day1.dt);
+  displayDay(1, day1.dt);
+  displayDay(2, day2.dt);
+  displayDay(3, day3.dt);
+  displayDay(4, day4.dt);
+  displayDay(5, day5.dt);
 
   // daily.temp.day
   let day1Temp = day1.temp.day;
@@ -352,6 +356,7 @@ function displayNext5DaysWeather(response) {
   day5PoPElement.innerHTML = Math.round(day5PoP * 100);
 }
 
+/*
 function displayNext5Days(now) {
   let weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
@@ -429,7 +434,7 @@ function displayNext5Days(now) {
   date3Element.innerHTML = month3 + "/" + date3;
   date4Element.innerHTML = month4 + "/" + date4;
   date5Element.innerHTML = month5 + "/" + date5;
-}
+}*/
 
 function useCurrentLocation() {
   navigator.geolocation.getCurrentPosition(displayCurrentLocation);
@@ -534,10 +539,10 @@ function getAltText(iconId) {
 }*/
 
 // TO DO: change function to set both image and its alt text, instead of just alt text?
-function setAltText(imgId, iconId) {
+/*function setAltText(imgId, iconId) {
   let imgElement = document.getElementById(imgId);
   imgElement.alt = altTextObject[iconId];
-}
+}*/
 
 function displayIcon(imgId, iconId) {
   let imgElement = document.getElementById(imgId);
@@ -545,19 +550,107 @@ function displayIcon(imgId, iconId) {
   imgElement.alt = altTextObject[iconId];
 }
 
-function test(dt) {
-  console.log(dt);
-
-  newDT = new Date(dt * 1000);
-  console.log(newDT);
-  console.log("getDate: " + newDT.getDate());
-  console.log("getDay: " + newDT.getDay());
-  console.log("getMonth: " + newDT.getMonth());
-  // console.log("getDate: " + dt.getDate);
-}
-
+/*
 function convertEpoch(dt) {
   date = new Date(dt * 1000);
   console.log([date.getDay(), date.getMonth(), date.getDate()]);
   return [date.getDay(), date.getMonth(), date.getDate()];
+}*/
+
+function displayDay(index, dt) {
+  let weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  let fullDate = new Date(dt * 1000);
+  let day = fullDate.getDay(); // day of the week
+  let month = fullDate.getMonth() + 1; // month
+  let date = fullDate.getDate(); // ex: the 5th of the month
+
+  let weekdayElement = document.getElementById(`weekday${index}`);
+  weekdayElement.innerHTML = weekdays[day];
+
+  if (month < 10) {
+    month = "0" + month;
+  }
+
+  if (date < 10) {
+    date = "0" + date;
+  }
+
+  let dateElement = document.getElementById(`date${index}`);
+  dateElement.innerHTML = month + "/" + date;
+
+  /*
+  const oneDay = 24 * 60 * 60 * 1000;
+  let day1 = new Date(now.getTime() + oneDay);
+  let day2 = new Date(now.getTime() + 2 * oneDay);
+  let day3 = new Date(now.getTime() + 3 * oneDay);
+  let day4 = new Date(now.getTime() + 4 * oneDay);
+  let day5 = new Date(now.getTime() + 5 * oneDay);
+
+  let weekday1Element = document.getElementById("weekday1");
+  let weekday2Element = document.getElementById("weekday2");
+  let weekday3Element = document.getElementById("weekday3");
+  let weekday4Element = document.getElementById("weekday4");
+  let weekday5Element = document.getElementById("weekday5");
+
+  weekday1Element.innerHTML = weekdays[day1.getDay()];
+  weekday2Element.innerHTML = weekdays[day2.getDay()];
+  weekday3Element.innerHTML = weekdays[day3.getDay()];
+  weekday4Element.innerHTML = weekdays[day4.getDay()];
+  weekday5Element.innerHTML = weekdays[day5.getDay()];
+
+  let date1Element = document.getElementById("date1");
+  let date2Element = document.getElementById("date2");
+  let date3Element = document.getElementById("date3");
+  let date4Element = document.getElementById("date4");
+  let date5Element = document.getElementById("date5");
+
+  let month1 = day1.getMonth() + 1;
+  let month2 = day2.getMonth() + 1;
+  let month3 = day3.getMonth() + 1;
+  let month4 = day4.getMonth() + 1;
+  let month5 = day5.getMonth() + 1;
+
+  if (month1 < 10) {
+    month1 = "0" + month1;
+  }
+  if (month2 < 10) {
+    month2 = "0" + month2;
+  }
+  if (month3 < 10) {
+    month3 = "0" + month3;
+  }
+  if (month4 < 10) {
+    month4 = "0" + month4;
+  }
+  if (month5 < 10) {
+    month5 = "0" + month5;
+  }
+
+  let date1 = day1.getDate().toString();
+  let date2 = day2.getDate().toString();
+  let date3 = day3.getDate().toString();
+  let date4 = day4.getDate().toString();
+  let date5 = day5.getDate().toString();
+
+  if (date1 < 10) {
+    date1 = "0" + date1;
+  }
+  if (date2 < 10) {
+    date2 = "0" + date2;
+  }
+  if (date3 < 10) {
+    date3 = "0" + date3;
+  }
+  if (date4 < 10) {
+    date4 = "0" + date4;
+  }
+  if (date5 < 10) {
+    date5 = "0" + date5;
+  }
+
+  date1Element.innerHTML = month1 + "/" + date1;
+  date2Element.innerHTML = month2 + "/" + date2;
+  date3Element.innerHTML = month3 + "/" + date3;
+  date4Element.innerHTML = month4 + "/" + date4;
+  date5Element.innerHTML = month5 + "/" + date5;*/
 }
