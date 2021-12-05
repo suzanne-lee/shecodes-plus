@@ -266,6 +266,9 @@ function displayNext5DaysWeather(response) {
   let day4 = response.data.daily[4];
   let day5 = response.data.daily[5];
 
+  // test(day1.dt);
+  convertEpoch(day1.dt);
+
   // daily.temp.day
   let day1Temp = day1.temp.day;
   let day2Temp = day2.temp.day;
@@ -347,35 +350,10 @@ function displayNext5DaysWeather(response) {
   day3PoPElement.innerHTML = Math.round(day3PoP * 100);
   day4PoPElement.innerHTML = Math.round(day4PoP * 100);
   day5PoPElement.innerHTML = Math.round(day5PoP * 100);
-
-  // TO DO: can use response.data.daily.dt to get that day's date/time
-  // TO DO: figure out alt text situation
 }
 
 function displayNext5Days(now) {
   let weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-
-  // use this to test
-  // now = new Date(now.getTime() + 75 * (24 * 60 * 60 * 1000));
-
-  /*
-  let weekday1 = weekdays[(date.getDay() + 1) % 7];
-  let weekday2 = weekdays[(date.getDay() + 2) % 7];
-  let weekday3 = weekdays[(date.getDay() + 3) % 7];
-  let weekday4 = weekdays[(date.getDay() + 4) % 7];
-  let weekday5 = weekdays[(date.getDay() + 5) % 7];
-
-  let weekday1Element = document.getElementById("weekday1");
-  let weekday2Element = document.getElementById("weekday2");
-  let weekday3Element = document.getElementById("weekday3");
-  let weekday4Element = document.getElementById("weekday4");
-  let weekday5Element = document.getElementById("weekday5");
-
-  weekday1Element.innerHTML = weekday1;
-  weekday2Element.innerHTML = weekday2;
-  weekday3Element.innerHTML = weekday3;
-  weekday4Element.innerHTML = weekday4;
-  weekday5Element.innerHTML = weekday5;*/
 
   const oneDay = 24 * 60 * 60 * 1000;
   let day1 = new Date(now.getTime() + oneDay);
@@ -488,6 +466,8 @@ function displayCurrentAndNext5DaysWeather([
 ]) {
   displayCurrentWeather(currentWeatherResponse);
   displayNext5DaysWeather(next5DaysWeatherResponse);
+
+  console.log(next5DaysWeatherResponse);
 }
 
 function displayCurrentLocation(position) {
@@ -563,4 +543,21 @@ function displayIcon(imgId, iconId) {
   let imgElement = document.getElementById(imgId);
   imgElement.src = `weather_icons/${iconId}.png`;
   imgElement.alt = altTextObject[iconId];
+}
+
+function test(dt) {
+  console.log(dt);
+
+  newDT = new Date(dt * 1000);
+  console.log(newDT);
+  console.log("getDate: " + newDT.getDate());
+  console.log("getDay: " + newDT.getDay());
+  console.log("getMonth: " + newDT.getMonth());
+  // console.log("getDate: " + dt.getDate);
+}
+
+function convertEpoch(dt) {
+  date = new Date(dt * 1000);
+  console.log([date.getDay(), date.getMonth(), date.getDate()]);
+  return [date.getDay(), date.getMonth(), date.getDate()];
 }
