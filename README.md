@@ -13,6 +13,12 @@ This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript. This pr
 * Display location
 
 # Additional Features 
+* Five possible backgrounds, chosen based on time of day and weather condition: 
+  1. Day time [clear sky]
+  2. Day time [all other weather conditions, i.e. cloudy, rainy, snowy, etc.]
+  3. Sunset (+/- 30 mins from time of today's sunset) [any weather condition]
+  4. Sunrise (+/- 30 mins from time of today's sunrise) [any weather condition]
+  5. Night [any weather condition]
 
 # Future Improvements / To Do
 * Display timezone 
