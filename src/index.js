@@ -143,10 +143,6 @@ function displayCurrentTime(now) {
   timeElement.innerHTML = formattedTime;
 }
 
-displayCurrentDate(now);
-displayCurrentTime(now);
-defaultData();
-
 /**
  *
  * @param {*} response
@@ -167,9 +163,10 @@ function displayCurrentWeather(response) {
   let currentTemp = Math.round(response.data.main.temp);
   currentTempElement.innerHTML = `${currentTemp}`;
 
-  // Weather
+  // Weather Description
   let currWeatherElement = document.getElementById("weather-condition");
   let weather = response.data.weather[0].main;
+  //let weather = response.data.weather[0].description;
   currWeatherElement.innerHTML = weather;
 
   // Feels like Temperature
@@ -441,9 +438,6 @@ function search(event) {
   }
 }
 
-let searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("click", search);
-
 /**
  * This function displays the appropriate weather icon and updates its alt text
  *
@@ -487,3 +481,19 @@ function displayDay(index, dt) {
   let dateElement = document.getElementById(`date${index}`);
   dateElement.innerHTML = month + "/" + date;
 }
+
+displayCurrentDate(now);
+displayCurrentTime(now);
+defaultData();
+
+let searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", search);
+
+function searchCitySubmit(evt) {
+  evt.preventDefault();
+  search();
+}
+
+window.addEventListener("load", () => {
+  document.querySelector("form").addEventListener("submit", searchCitySubmit);
+});
