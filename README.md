@@ -16,7 +16,7 @@ This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript. This pr
 
 # Future Improvements / To Do
 * Display timezone 
-* Add more possible backgrounds
+* Add more possible backgrounds for various weather conditions
 * Implement responsiveness (mobile-friendly)
 * Use local storage to cache API calls 
 * Unit conversion (change between Celsius and Fahrenheit)
