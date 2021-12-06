@@ -238,9 +238,14 @@ function displayCurrentWeather(response) {
     // use night sky image
     changeBackground("night");
     changeTextColor("#fff");
+  } else if (
+    currentTime < sunsetTime + halfHour ||
+    currentTime > sunsetTime - halfHour
+  ) {
+    changeBackground("sunset");
+    changeTextColor("#000");
   } else {
-    // use sunrise/sunset image
-    changeBackground("sunrise-sunset");
+    changeBackground("sunrise");
     changeTextColor("#fff");
   }
 }
