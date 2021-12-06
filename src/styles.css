@@ -23,13 +23,13 @@ button {
 #upper-container {
   display: flex;
   padding: 50px;
+  font-size: 18px;
 }
 
 #date-time {
   flex: 1;
   order: 1;
   font-weight: 400;
-  font-size: 16px;
 }
 
 #date-time p {
