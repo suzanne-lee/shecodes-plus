@@ -14,9 +14,18 @@ This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript. This pr
   1. Entering the name of any city OR
   2. Use the user's current location
 * Display the current temperature, weather description (i.e. Sunny, Clouds, Clear, etc.), wind speed 
-* Display icons to match the weather (I chose to use [3D weather icons found on UI Freebies](https://uifreebies.net/icon/3d-weather-icons-free), rather than the ones included in the API) 
+* Display icons to match the weather
 
 # Icon List
+
+The 3D weather icons used were [found on UI Freebies](https://uifreebies.net/icon/3d-weather-icons-free). The following icons were made using the UI freebies material:
+* 04d.png
+* 04n.png
+
+<img src="https://user-images.githubusercontent.com/29237731/144928705-12adeca4-27ae-48d0-b4a2-8a84fad8bf16.png" width="600">
+
+The default icons that come with the Open Weather API [can be found here](https://openweathermap.org/weather-conditions)
+
 
 # Additional Features
 * Forecast information (Next 5 Days)
