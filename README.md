@@ -16,6 +16,8 @@ This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript. This pr
 * Display the current temperature, weather description (i.e. Sunny, Clouds, Clear, etc.), wind speed 
 * Display icons to match the weather (I chose to use [3D weather icons found on UI Freebies](https://uifreebies.net/icon/3d-weather-icons-free), rather than the ones included in the API) 
 
+# Icon List
+
 # Additional Features
 * Forecast information (Next 5 Days)
 * More weather information, such as Min/Max Temperature, time of sunset and sunrise, humidity, etc. 
