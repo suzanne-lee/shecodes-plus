@@ -252,7 +252,7 @@ function displayCurrentWeather(response) {
  */
 function defaultData() {
   let city = "Montreal";
-  blah2(city);
+  fetchAndDisplayForecastByCity(city);
 }
 
 /**
@@ -347,7 +347,7 @@ function displayNext5DaysWeather(response) {
  *
  */
 function useCurrentLocation() {
-  navigator.geolocation.getCurrentPosition(displayCurrentLocation);
+  navigator.geolocation.getCurrentPosition(fetchAndDisplayForecast);
 }
 
 /**
@@ -367,11 +367,12 @@ function catchFunction(e) {
 }
 
 /**
+ * Uses latitude and longitude to call APIs
  *
  * @param {*} position
  * @returns
  */
-function blah(position) {
+function fetchForecast(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
 
@@ -385,32 +386,27 @@ function blah(position) {
  *
  * @param {*} param0
  */
-function displayCurrentAndNext5DaysWeather([
-  currentWeatherResponse,
-  next5DaysWeatherResponse,
-]) {
+function displayForecast([currentWeatherResponse, next5DaysWeatherResponse]) {
   displayCurrentWeather(currentWeatherResponse);
   displayNext5DaysWeather(next5DaysWeatherResponse);
-
-  console.log(next5DaysWeatherResponse);
 }
 
 /**
  *
  * @param {*} position
  */
-function displayCurrentLocation(position) {
-  blah(position).then(displayCurrentAndNext5DaysWeather).catch(catchFunction);
+function fetchAndDisplayForecastByPosition(position) {
+  fetchForecast(position).then(displayForecast).catch(catchFunction);
 }
 
 /**
  *
  * @param {*} city
  */
-function blah2(city) {
+function fetchAndDisplayForecastByCity(city) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(url).then((response) => {
-    return displayCurrentLocation({
+    return fetchAndDisplayForecastByPosition({
       coords: {
         longitude: response.data.coord.lon,
         latitude: response.data.coord.lat,
@@ -432,7 +428,7 @@ function search(event) {
 
   if (input !== "") {
     let city = input;
-    blah2(city);
+    fetchAndDisplayForecastByCity(city);
   } else {
     alert(`You must enter a city name before clicking "Search".`);
   }
