@@ -310,13 +310,25 @@ hr {
     width: 100% !important;
   }
 
+  /*
   .container1 #col1,
   .container1 #col3 {
-    padding: 40px !important ;
+    padding: 50px !important ;
+  }*/
+
+  .container1 #col1 {
+    padding-top: 60px !important;
+  }
+
+  .container1 #col3 {
+    padding-bottom: 60px !important;
   }
 
   .container1 #col2 {
     width: 70%;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   #card2 {
