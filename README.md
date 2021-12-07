@@ -24,7 +24,7 @@ The 3D weather icons used were [found on UI Freebies](https://uifreebies.net/ico
 * 04d.png
 * 04n.png
 
-<img src="https://user-images.githubusercontent.com/29237731/144928705-12adeca4-27ae-48d0-b4a2-8a84fad8bf16.png" width="600">
+<img src="https://user-images.githubusercontent.com/29237731/144950225-b2e78547-5987-414f-8382-707a58a5a385.png" width="600">
 
 The default icons that come with the Open Weather API [can be found here](https://openweathermap.org/weather-conditions)
 
