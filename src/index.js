@@ -347,7 +347,7 @@ function displayNext5DaysWeather(response) {
  *
  */
 function useCurrentLocation() {
-  navigator.geolocation.getCurrentPosition(fetchAndDisplayForecast);
+  navigator.geolocation.getCurrentPosition(fetchAndDisplayForecastByPosition);
 }
 
 /**
