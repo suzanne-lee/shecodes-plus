@@ -10,9 +10,9 @@ This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript. This pr
 # Project Requirements
 * Display current date and time (of the user)
 * Display location (Montreal, Canada by default)
-* Allow user's to display a specific city's weather information, by:
-  1. Entering the name of any city OR
-  2. Use the user's current location
+* Allow users to display a specific city's weather information, via:
+  1. Search engine (user can search for any city) OR
+  2. The user's current location
 * Display the current temperature, weather description (i.e. Sunny, Clouds, Clear, etc.), wind speed 
 * Display icons to match the weather
 
@@ -25,7 +25,6 @@ The 3D weather icons used were [found on UI Freebies](https://uifreebies.net/ico
 <img src="https://user-images.githubusercontent.com/29237731/144928705-12adeca4-27ae-48d0-b4a2-8a84fad8bf16.png" width="600">
 
 The default icons that come with the Open Weather API [can be found here](https://openweathermap.org/weather-conditions)
-
 
 # Additional Features
 * Forecast information (Next 5 Days)
@@ -47,6 +46,14 @@ The default icons that come with the Open Weather API [can be found here](https:
 * Improve web performance (how long the site, data, and images load)
 * Improve code readability (comments, using more descriptive class/id/variable names)
 
-# Examples
+# Backgrounds
 
-<img width="1920" alt="Screen Shot 2021-12-01 at 10 31 02 PM" src="https://user-images.githubusercontent.com/29237731/144353068-4815f550-323a-44e5-89ce-c2b6f93a482c.png">
+<img width="1440" alt="Clear Day - Seoul" src="https://user-images.githubusercontent.com/29237731/144943602-5e86889a-6b7f-4dc6-b4ec-6d3a138b728f.png">
+
+<img width="1440" alt="Cloudy Day - Singapore" src="https://user-images.githubusercontent.com/29237731/144943592-e0b7594c-e2ee-4c76-a923-4b7ffbd8ce41.png">
+
+<img width="1440" alt="Sunset - San Diego" src="https://user-images.githubusercontent.com/29237731/144943631-e42d9ba8-20fe-4c5d-98da-b3eeca1112c2.png">
+
+<img width="1440" alt="Night - Toronto" src="https://user-images.githubusercontent.com/29237731/144943611-ac9302f6-30f2-4ae2-be32-9dba6f852549.png">
+
+<img width="1440" alt="Sunrise - Banff" src="https://user-images.githubusercontent.com/29237731/144943642-ef13599f-cc08-4e83-ae52-a3897ceee902.png">
