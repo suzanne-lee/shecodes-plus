@@ -1,26 +1,26 @@
 let now = new Date();
-let apiKey = "69783318a51bc25d3112e1ead9cef0cd";
-
+const apiKey = "69783318a51bc25d3112e1ead9cef0cd";
 const altTextObject = {
-  "01d": "Yellow Sun",
-  "01n": "Purple Crescent Moon surrounded by Yellow Stars",
-  "02d": "Yellow Sun Behind White Cloud",
-  "02n": "Purple Crescent Moon Behind White Cloud",
-  "03d": "White Cloud",
-  "03n": "White Cloud surrounded by Fuchsia Stars",
-  "04d": "Two White Clouds overlapping each other",
-  "04n": "Two White Clouds overlapping each other, surrounded by Fuchsia Stars",
-  "09d": "White Cloud with 3 Raindrops",
-  "09n": "White Cloud with 3 Raindrops",
-  "10d": "Yellow Sun Behind White Cloud with 3 Raindrops",
-  "10n": "Purple Crescent Moon Behind White Cloud with 3 Raindrops",
-  "11d": "Yellow Sun Behind White Cloud with Lightning Bolt",
+  "01d": "Yellow sun",
+  "01n": "Purple crescent moon surrounded by yellow stars",
+  "02d": "Yellow sun behind white cloud",
+  "02n": "Purple crescent moon behind white cloud",
+  "03d": "White cloud",
+  "03n": "White cloud surrounded by fuchsia stars",
+  "04d": "Two white clouds overlapping each other",
+  "04n": "Two white clouds overlapping each other, surrounded by fuchsia stars",
+  "09d": "White cloud with three raindrops falling from it",
+  "09n": "White cloud with three raindrops falling from it",
+  "10d": "Yellow sun behind white cloud with three raindrops falling from it",
+  "10n":
+    "Purple crescent moon behind white cloud with three raindrops falling from it",
+  "11d": "Yellow sun behind white cloud with lightning bolt",
   "11n":
-    "Purple Crescent Moon Behind White Cloud with Lightning Bolt surrounded by Yellow Stars",
-  "13d": "White Cloud with Snowflakes",
-  "13n": "Purple Crescent Moon Behind White Cloud with Snowflakes",
-  "50d": "Yellow Sun with White Squiggly Mist Lines",
-  "50n": "Purple Crescent Moon with White Squiggly Mist Lines",
+    "Purple crescent moon behind white cloud with lightning bolt surrounded by yellow stars",
+  "13d": "White cloud with snowflakes",
+  "13n": "Purple crescent moon behind white cloud with snowflakes",
+  "50d": "Yellow sun with white squiggly mist lines",
+  "50n": "Purple crescent moon with white squiggly mist lines",
 };
 
 /**
