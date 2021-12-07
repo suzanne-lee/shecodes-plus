@@ -18,17 +18,7 @@ This project was built with HTML/CSS, Bootstrap, and Vanilla JavaScript. This pr
 * Display the current temperature, weather description (i.e. Sunny, Clouds, Clear, etc.), wind speed 
 * Display icons to match the weather
 
-# Icon List
-
-The 3D weather icons used were [found on UI Freebies](https://uifreebies.net/icon/3d-weather-icons-free). The following icons were made using the UI freebies material:
-* 04d.png
-* 04n.png
-
-<img src="https://user-images.githubusercontent.com/29237731/144950225-b2e78547-5987-414f-8382-707a58a5a385.png" width="600">
-
-The default icons that come with the Open Weather API [can be found here](https://openweathermap.org/weather-conditions)
-
-# Additional Features
+# Additional Features Implemented 
 * Forecast information (Next 5 Days)
 * More weather information, such as Min/Max Temperature, time of sunset and sunrise, humidity, etc. 
 * Five possible backgrounds, chosen based on time of day and weather condition:
@@ -37,6 +27,9 @@ The default icons that come with the Open Weather API [can be found here](https:
   3. Sunset (+/- 30 mins from time of today's sunset) [any weather condition]
   4. Sunrise (+/- 30 mins from time of today's sunrise) [any weather condition]
   5. Night [any weather condition]
+* Search engine error handling:
+  1. When a user submits an empty string
+  2. When a user submits a non-existent city
 
 # Future Improvements / To Do
 * Display timezone 
@@ -47,6 +40,16 @@ The default icons that come with the Open Weather API [can be found here](https:
 * Add more forecast information, such as Next 5 Hours  
 * Improve web performance (how long the site, data, and images load)
 * Improve code readability (comments, using more descriptive class/id/variable names)
+
+# Icon List
+
+The 3D weather icons used were [found on UI Freebies](https://uifreebies.net/icon/3d-weather-icons-free). The following icons were made using the UI freebies material:
+* 04d.png
+* 04n.png
+
+<img src="https://user-images.githubusercontent.com/29237731/144950225-b2e78547-5987-414f-8382-707a58a5a385.png" width="600">
+
+The default icons that come with the Open Weather API [can be found here](https://openweathermap.org/weather-conditions)
 
 # Backgrounds
 
