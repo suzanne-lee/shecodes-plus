@@ -28,10 +28,25 @@ const altTextObject = {
  * @param {*} imageName
  */
 function changeBackground(imageName) {
+  if (isMobile()) {
+    imageName = imageName.concat("-mobile");
+  }
+
   document.querySelector(
     "body"
   ).style.backgroundImage = `url(backgrounds/${imageName}.png)`;
   document.body.style.backgroundHeight = "90%";
+}
+
+/**
+ *
+ * @returns true if screen size is less than 700px, false otherwise
+ */
+function isMobile() {
+  if (window.screen.width < 700) {
+    return true;
+  }
+  return false;
 }
 
 /**
